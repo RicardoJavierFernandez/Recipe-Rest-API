@@ -13,6 +13,14 @@ class Recipe(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def steps(self):
+        return self.step_set.all()
+
+    @property
+    def ingredients(self):
+        return self.ingredient_set.all()
+
 
 class Step(models.Model):
     step_text = models.TextField(null=False)
